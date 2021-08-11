@@ -7,13 +7,22 @@ int main() {
 
     int secret = 247127;
     int guess;
-
+    int limit = 5;
+    int k = 0;
     while(guess != secret){
-        printf("Guess the secret number: ");
-        scanf("%d",&guess);
+        if (limit > 0){
+            printf("You have a total of %d tries,so guess the secret number: ",limit);
+            scanf("%d",&guess);
+            limit--;
+        }
+        else{
+            printf("Out of tries,you lost! \n");
+            k = 1;
+            break;
+        }
     }
-
-    printf("The secret number is %d",secret);
-
+    if(k != 1){
+        printf("You win! \n");
+    }
     return 0;
 }
